@@ -5,15 +5,18 @@ form.addEventListener("submit", onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  const data = {};
+  const email = event.currentTarget.elements.email.value;
+  const password = event.currentTarget.elements.password.value;
 
-  data.email = event.currentTarget.elements.email.value;
-  data.password = event.currentTarget.elements.password.value;
-  console.log(data);
-
-  if (!data.email || !data.password) {
+  if (!email || !password) {
     return alert("Усі поля мають бути заповнені");
   }
+
+  const data = {};
+
+  data.email = email;
+  data.password = password;
+  console.log(data);
 
   event.currentTarget.reset();
 }

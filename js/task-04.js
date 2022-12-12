@@ -1,19 +1,18 @@
 let counterValue = 0;
 
-const buttons = document.querySelectorAll('button');
-const counter = document.querySelector('#value');
+const decrementBtn = document.querySelector('[data-action="decrement"]');
+const incrementBtn = document.querySelector('[data-action="increment"]');
+const counter = document.querySelector("#value");
 
-buttons.forEach((button) => {
-    button.addEventListener('click', onClick)
-})
+decrementBtn.addEventListener("click", onDecrement);
+incrementBtn.addEventListener("click", onIncrement);
 
-function onClick(event) {
-if (event.target.dataset.action === 'increment') {
-    counterValue +=1;
-} else {
-    counterValue -=1;
+function onDecrement() {
+  counterValue -= 1;
+  counter.textContent = counterValue;
 }
 
-counter.textContent = counterValue;
+function onIncrement() {
+  counterValue += 1;
+  counter.textContent = counterValue;
 }
-
